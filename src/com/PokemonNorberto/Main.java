@@ -1,7 +1,5 @@
 package com.PokemonNorberto;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Scanner;
+
 
 
 /* ------------------- POKEMON APANHÁ-LOS TODOS-------------------
@@ -29,65 +27,11 @@ The coordinates represented by X AND y are horizontal and vertical respectively
 
 public class Main {
 
-    public static ArrayList<Movement> pokemonPositions = new ArrayList<Movement>();
-
-
     public static void main(String[] args) {
 
-        Scanner s = new Scanner(System.in);
         Player ash = new Player("Ash",0,0);
-        pokemonPositions.add(new Movement(0,0));
-        System.out.println("What is Ashe's Path?");
-        String path = s.next();
-        String pathUpper = path.toUpperCase();
-        for (int i=0; i <pathUpper.length();i++){
-            switch(pathUpper.charAt(i)){
-                case 'N':
-                    System.out.println("CASE N");
-                    ash.movesPlayerNorth();
-                    System.out.println(ash);
-                    if(checkPokemon(ash.getX(),ash.getY())){
-                        pokemonPositions.add(new Movement(ash.getX(),ash.getY()));
-                    }
-                    break;
-                case 'S':
-                    System.out.println("CASE S");
-                    ash.movesPlayerSouth();
-                    System.out.println(ash);
-                    if(checkPokemon(ash.getX(),ash.getY())){
-                        pokemonPositions.add(new Movement(ash.getX(),ash.getY()));
-                    }
-                    break;
-                case 'E':
-                    System.out.println("CASE E");
-                    ash.movesPlayerEast();
-                    System.out.println(ash);
-                    if(checkPokemon(ash.getX(),ash.getY())){
-                        pokemonPositions.add(new Movement(ash.getX(),ash.getY()));
-                    }
-                    break;
-                case 'O':
-                    System.out.println("CASE O");
-                    ash.movesPlayerWest();
-                    System.out.println(ash);
-                    if(checkPokemon(ash.getX(),ash.getY())){
-                        pokemonPositions.add(new Movement(ash.getX(),ash.getY()));
-                    }
-                    break;
-                default:
-                    System.out.println("Direction not correct.");
-            }
-        }
-        System.out.println(pokemonPositions.size());
-    }
-
-    public static boolean checkPokemon(int x, int y) {
-        for(Movement movement: pokemonPositions){
-            if(movement.getX() == x && movement.getY()==y){
-                return false;
-            }
-        }
-        return true;
+        Game game = new Game(ash);
+        System.out.println(game.startGame(ash));
     }
 
 }
