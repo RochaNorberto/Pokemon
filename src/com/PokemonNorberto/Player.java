@@ -1,5 +1,11 @@
 package com.PokemonNorberto;
 
+/*
+The class Player represents the player playing the Game.
+The player has it's own position with coordinates, x and y, and moves freely with no restrictions what so ever.
+The player cna only move North, South, East or West.
+If the game expands and we want to add new Players we can do it by creating a new Player and giving it their own position.
+ */
 public class Player {
     String name;
     int x;

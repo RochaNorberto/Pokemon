@@ -1,6 +1,10 @@
 package com.PokemonNorberto;
 
+/*
+Author Norberto Rocha
+November 2020
 
+ */
 
 /* ------------------- POKEMON APANHÁ-LOS TODOS-------------------
 
@@ -23,15 +27,18 @@ The coordinates represented by X AND y are horizontal and vertical respectively
  */
 
 
-
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 
         Player ash = new Player("Ash",0,0);
-        Game game = new Game(ash);
-        System.out.println(game.startGame(ash));
+        Game game = new Game();
+        Scanner s= new Scanner(System.in);
+        System.out.println("What is Ashe's Path?");
+        String path = s.next();
+        System.out.println(game.startGame(ash,path));
     }
 
 }
